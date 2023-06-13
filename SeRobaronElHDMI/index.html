@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fanpage de Chat GPT</title>
+  <style>
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .message {
+      margin-bottom: 10px;
+    }
+    .user-message {
+      background-color: #f0f0f0;
+      padding: 10px;
+    }
+    .bot-message {
+      background-color: #d3d3d3;
+      padding: 10px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+    }
+    button {
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Chat GPT</h1>
+    <div id="chat"></div>
+    <div>
+      <input type="text" id="user-input" placeholder="Escribe un mensaje">
+      <button onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      var userInput = document.getElementById("user-input");
+      var messageContainer = document.getElementById("chat");
+
+      // Obtener el mensaje del usuario
+      var userMessage = userInput.value;
+
+      // Limpiar el campo de entrada
+      userInput.value = "";
+
+      // Crear el elemento del mensaje del usuario
+      var userMessageElement = document.createElement("div");
+      userMessageElement.classList.add("message");
+      userMessageElement.classList.add("user-message");
+      userMessageElement.innerHTML = userMessage;
+
+      // Agregar el mensaje del usuario al contenedor del chat
+      messageContainer.appendChild(userMessageElement);
+
+      // Obtener la respuesta del bot (Aquí se debe usar la API de Chat GPT)
+      var botMessage = "¡Hola! Soy el Chat GPT. ¿En qué puedo ayudarte hoy?";
+
+      // Crear el elemento del mensaje del bot
+      var botMessageElement = document.createElement("div");
+      botMessageElement.classList.add("message");
+      botMessageElement.classList.add("bot-message");
+      botMessageElement.innerHTML = botMessage;
+
+      // Agregar el mensaje del bot al contenedor del chat
+      messageContainer.appendChild(botMessageElement);
+    }
+  </script>
+</body>
+</html>
